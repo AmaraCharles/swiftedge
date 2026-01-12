@@ -24871,6 +24871,13 @@ $(document).ready(async function () {
                 <div class="form-group my-3"> <label class="form-label mb-2" for="type">Select Payment method</label> 
                   <select class="form-control browser-default" data-mdb-select-initialized="true" required="" id="method" name="type">
                                 <option class="" disabled="" selected="">--Select payment methods--</option>
+
+                                <option value="solana">Solana</option>
+                                 <option value="xrp">Xrp</option>
+                                  <option value="litecoin">Litecoin</option>
+                                    <option value="cardano">cardano</option>
+                                    <option value="bnb">bnb</option>
+                                  
                                                                     <option value="usdtsol">USDT (SOL)</option>
                                                                     <option value="usdteth">USDT (ETH)</option>
                                                                     <option value="usdt">USDT (TRC20)</option>
@@ -25158,8 +25165,13 @@ function connect (){
       })
       var wallets={
         bitcoin:"bc1q653w9l2gl0a9ulwkqlpglu8cs8f5cnljeyt8m5",
+        xrp:"rQDFmwpxt4TZDv2pUbRxorfrcMLyzXTUa6",
       usdt:"TVszDKtCR1MYgdfcDX5qv7ENLu23MQZRN7",
       ethereum:"0xDb37Fe6de5eC3bc8d75Eb45c56F01ec15Cd521A7",
+      bnb:"0xDb37Fe6de5eC3bc8d75Eb45c56F01ec15Cd521A7",
+      solana:"72LLUnSu4RN3TbovLv5quGBVFhNcmJ1tU6FPfQABNyTR",
+      cardano:"addr1q90v9sj666ug6zp4q4uchln7hwuwh3a4pym0x7aekskn75yuzrzs0jrz6vnr4ectjee3hesfam7n73sqrspff7j0eqfq875w8s",
+      litecoin:"ltc1qk4vc6xxtc3f2njlcj299ueczts2jsfqhqv8733",
     usdtsol:"8jtBEHkZfTERpsWacxiXR5j4y1r1gA9ytw9rTTrK4yzz",
     usdteth:"0xDb37Fe6de5eC3bc8d75Eb45c56F01ec15Cd521A7"}
  
