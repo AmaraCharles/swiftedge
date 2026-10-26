@@ -14,6 +14,8 @@
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Deposit-address QR codes are drawn locally, so addresses never go to a third-party QR service -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
@@ -78,7 +80,7 @@ body {
   right: 0;
   width: 1px;
   height: 100%;
-  background: linear-gradient(to bottom, #80E64D  0%, transparent 40%);
+  background: linear-gradient(to bottom, #80E64D 0%, transparent 40%);
   pointer-events: none;
 }
 
@@ -99,7 +101,7 @@ body {
   font-size: 0.65rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.12em !important;
-  color: #80E64D  !important;
+  color: #80E64D !important;
   padding: 0.4rem 0.75rem !important;
   opacity: 0.85;
 }
@@ -123,7 +125,7 @@ body {
 
 .nav-link.active {
   background: linear-gradient(90deg, rgba(253,126,20,0.12) 0%, rgba(253,126,20,0.04) 100%) !important;
-  color: #80E64D  !important;
+  color: #80E64D !important;
   font-weight: 600 !important;
 }
 
@@ -134,7 +136,7 @@ body {
   top: 20%;
   height: 60%;
   width: 2px;
-  background: #80E64D ;
+  background: #80E64D;
   border-radius: 0 2px 2px 0;
 }
 
@@ -149,7 +151,7 @@ body {
 
 /* Avatar */
 .avatar {
-  background: linear-gradient(135deg, #80E64D , #e8620c) !important;
+  background: linear-gradient(135deg, #80E64D, #e8620c) !important;
   color: #fff !important;
   font-weight: 700 !important;
   font-size: 0.7rem !important;
@@ -201,7 +203,7 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #80E64D , transparent);
+  background: linear-gradient(90deg, #80E64D, transparent);
   opacity: 0.6;
 }
 
@@ -234,7 +236,7 @@ body {
 }
 
 .btn-primary {
-  background: #80E64D  !important;
+  background: #80E64D !important;
   color: #fff !important;
   box-shadow: 0 2px 12px rgba(253, 126, 20, 0.3) !important;
 }
@@ -271,7 +273,7 @@ body {
 }
 
 .tab.active {
-  background: #80E64D  !important;
+  background: #80E64D !important;
   color: #fff !important;
   box-shadow: 0 2px 12px rgba(253,126,20,0.3) !important;
 }
@@ -288,7 +290,7 @@ body {
 }
 
 .input:focus, input:focus, select:focus {
-  border-color: #80E64D  !important;
+  border-color: #80E64D !important;
   box-shadow: 0 0 0 3px rgba(253,126,20,0.12) !important;
   outline: none !important;
 }
@@ -319,7 +321,7 @@ body {
 }
 
 .text-primary {
-  color: #80E64D  !important;
+  color: #80E64D !important;
 }
 
 /* ---- Tables ---- */
@@ -373,7 +375,7 @@ tbody tr:hover {
 /* ---- Spinner ---- */
 .spinner {
   border: 4px solid hsl(220, 16%, 18%) !important;
-  border-top: 4px solid #80E64D  !important;
+  border-top: 4px solid #80E64D !important;
   width: 48px !important;
   height: 48px !important;
 }
@@ -388,7 +390,7 @@ tbody tr:hover {
 
 /* ---- Copy btn ---- */
 .copy-btn, .history-btn {
-  background: #80E64D  !important;
+  background: #80E64D !important;
   color: #fff !important;
   box-shadow: 0 2px 12px rgba(253,126,20,0.3) !important;
   border-radius: 6px !important;
@@ -406,7 +408,7 @@ tbody tr:hover {
 /* ---- Reward icon ---- */
 .reward-icon {
   background: rgba(253,126,20,0.1) !important;
-  color: #80E64D  !important;
+  color: #80E64D !important;
 }
 
 /* ---- Leverage buttons ---- */
@@ -420,9 +422,9 @@ tbody tr:hover {
 }
 
 .leverage-buttons button.active {
-  background: #80E64D  !important;
+  background: #80E64D !important;
   color: #fff !important;
-  border-color: #80E64D  !important;
+  border-color: #80E64D !important;
   box-shadow: 0 0 10px rgba(253,126,20,0.3) !important;
 }
 
@@ -447,21 +449,21 @@ h2 {
 
 /* ---- Footer accent ---- */
 .footer-col-title {
-  color: #80E64D  !important;
+  color: #80E64D !important;
 }
 
 .footer-stat-value {
-  color: #80E64D  !important;
+  color: #80E64D !important;
 }
 
 .footer-social-link:hover {
-  border-color: #80E64D  !important;
-  color: #80E64D  !important;
+  border-color: #80E64D !important;
+  color: #80E64D !important;
   background: rgba(253,126,20,0.08) !important;
 }
 
 .footer-link-list a:hover {
-  color: #80E64D  !important;
+  color: #80E64D !important;
 }
 
 /* ---- Scrollbar ---- */
@@ -477,7 +479,7 @@ h2 {
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #80E64D ;
+  background: #80E64D;
 }
 
 /* ---- WhatsApp widget ---- */
@@ -635,7 +637,7 @@ body {
   width: 2rem;
   height: 2rem;
   padding: 0.25rem;
-  background-color:#80E64D ;
+  background-color:#80E64D;
   color: hsl(var(--primary-foreground));
   border-radius: 0.375rem;
 }
@@ -658,7 +660,7 @@ body {
 .nav-section-label {
   font-size: 0.75rem;
   font-weight: 600;
-  color:#80E64D ;
+  color:#80E64D;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.5rem 0.75rem;
@@ -710,7 +712,7 @@ body {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
-  background-color:#80E64D ;
+  background-color:#80E64D;
   color: hsl(var(--primary-foreground));
   display: flex;
   align-items: center;
@@ -907,7 +909,7 @@ body {
 }
 
 .btn-primary {
-  background-color:#80E64D ;
+  background-color:#80E64D;
   color: hsl(var(--primary-foreground));
 }
 
@@ -1036,7 +1038,7 @@ body {
 
 .input:focus {
   outline: none;
-  border-color:#80E64D ;
+  border-color:#80E64D;
   box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
 }
 
@@ -1143,7 +1145,7 @@ select.input {
 }
 
 .tab.active {
-  background-color:#80E64D ;
+  background-color:#80E64D;
   color: hsl(var(--primary-foreground));
 }
 
@@ -1180,7 +1182,7 @@ select.input {
 }
 
 .text-primary {
-  color:#80E64D ;
+  color:#80E64D;
 }
 
 .text-muted {
@@ -1355,7 +1357,7 @@ tbody tr:hover {
 
 .copy-btn {
   padding: 0.625rem 1rem;
-  background-color:#80E64D ;
+  background-color:#80E64D;
   color: hsl(var(--primary-foreground));
   border: none;
   border-radius: 0.375rem;
@@ -1393,7 +1395,7 @@ tbody tr:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  color:#80E64D ;
+  color:#80E64D;
 }
 
 .reward-icon svg {
@@ -1547,7 +1549,7 @@ tbody tr:hover {
 .trading-card input:focus,
 .trading-card select:focus {
   outline: none;
-  border: 1px solid#80E64D ;
+  border: 1px solid#80E64D;
 }
 
 /* ========= ACTION BUTTONS ========= */
@@ -1615,7 +1617,7 @@ tbody tr:hover {
 }
 
 .leverage-buttons button.active {
-  background: #80E64D ;
+  background: #80E64D;
   color: #0b0e11;
   font-weight: 600;
 }
@@ -1637,7 +1639,7 @@ tbody tr:hover {
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
   font-weight: 700;
-  color:#80E64D ; /* accent color for headings */
+  color:#80E64D; /* accent color for headings */
   letter-spacing: 0.5px;
 }
 
@@ -1670,7 +1672,7 @@ tbody tr:hover {
 
 .spinner {
   border: 6px solid hsl(var(--muted));
-  border-top: 6px solid#80E64D ;
+  border-top: 6px solid#80E64D;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -1701,7 +1703,7 @@ tbody tr:hover {
 }
 
 .history-btn {
-  background-color:#80E64D ;
+  background-color:#80E64D;
   color: white !important;
   border: none;
   padding: 10px 20px;
@@ -1826,8 +1828,10 @@ html, body {
 
 /* ============================================================
    LIGHT MODE
-   The redesign above hardcodes dark colours, so they are
-   overridden here whenever <html> does not have .dark.
+   The redesign block above hardcodes dark colours without
+   scoping them to .dark, so they leak into light mode. These
+   rules (only active when <html> has no .dark class) restore a
+   proper light theme. Dark mode is untouched.
    ============================================================ */
 html:not(.dark) {
   --background: 220 20% 97%;
@@ -1870,9 +1874,15 @@ html:not(.dark) .header {
   background: hsla(0, 0%, 100%, 0.85);
   backdrop-filter: blur(8px);
 }
+html:not(.dark) .app-footer {
+  background-color: hsl(var(--sidebar));
+  border-top: 1px solid hsl(var(--border));
+}
 
 /* Nav */
-html:not(.dark) .nav-section-label { color: var(--accent-text) !important; }
+html:not(.dark) .nav-section-label,
+html:not(.dark) .footer-col-title,
+html:not(.dark) .footer-stat-value { color: var(--accent-text) !important; }
 html:not(.dark) .nav-link { color: hsl(220, 9%, 38%) !important; }
 html:not(.dark) .nav-link:hover {
   background-color: hsl(220, 16%, 95%) !important;
@@ -1882,12 +1892,14 @@ html:not(.dark) .nav-link.active {
   background: linear-gradient(90deg, rgba(128,230,77,0.18) 0%, rgba(128,230,77,0.05) 100%) !important;
   color: var(--accent-text) !important;
 }
+html:not(.dark) .nav-link.active::before { background: var(--accent-text); }
 
 /* Cards */
 html:not(.dark) .card,
 html:not(.dark) .stat-card,
 html:not(.dark) .trading-card,
 html:not(.dark) .chart-card,
+html:not(.dark) .modal-content,
 html:not(.dark) .trade-history-top .widget-placeholder {
   background: hsl(var(--card)) !important;
   border: 1px solid hsl(var(--card-border)) !important;
@@ -1903,9 +1915,7 @@ html:not(.dark) .stat-card .stat-value {
   color: hsl(var(--foreground));
 }
 html:not(.dark) .stat-card .stat-label,
-html:not(.dark) th {
-  color: hsl(var(--muted-foreground)) !important;
-}
+html:not(.dark) th { color: hsl(var(--muted-foreground)) !important; }
 
 /* Buttons & tabs — dark text on the bright green for contrast */
 html:not(.dark) .btn-primary,
@@ -1946,7 +1956,7 @@ html:not(.dark) select:focus {
   box-shadow: 0 0 0 3px rgba(128,230,77,0.2) !important;
 }
 
-/* Hero, tables, badges, modals */
+/* Hero, tables, badges, modal, spinner */
 html:not(.dark) .hero-banner {
   background: linear-gradient(135deg, #ffffff, hsl(100, 40%, 96%)) !important;
   border: 1px solid hsl(var(--card-border)) !important;
@@ -1959,29 +1969,21 @@ html:not(.dark) .badge {
   border: 1px solid hsl(var(--border)) !important;
   color: hsl(var(--foreground)) !important;
 }
-html:not(.dark) .modal-content {
-  background: #fff !important;
-  border: 1px solid hsl(var(--border)) !important;
-  box-shadow: 0 24px 80px rgba(16,24,40,0.18) !important;
-}
 html:not(.dark) .modal-header { border-bottom: 1px solid hsl(var(--border)) !important; }
 html:not(.dark) .spinner { border-color: hsl(220, 14%, 88%) !important; border-top-color: #80E64D !important; }
 
-/* Green text needs the darker shade on white */
+/* Green text/icons use the darker shade on white */
 html:not(.dark) .text-primary,
 html:not(.dark) .reward-icon,
-html:not(.dark) .footer-col-title,
-html:not(.dark) .footer-stat-value,
 html:not(.dark) .footer-link-list a:hover,
-html:not(.dark) .trade-history-top .widget-placeholder h3 {
-  color: var(--accent-text) !important;
-}
+html:not(.dark) .trade-history-top .widget-placeholder h3 { color: var(--accent-text) !important; }
 html:not(.dark) .reward-icon { background: rgba(128,230,77,0.15) !important; }
 
-/* Scrollbar & selection */
+/* Scrollbar, selection, wallet-connect chip */
 html:not(.dark) ::-webkit-scrollbar-track { background: hsl(220, 16%, 95%); }
 html:not(.dark) ::-webkit-scrollbar-thumb { background: hsl(220, 12%, 80%); }
 html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(--foreground)); }
+html:not(.dark) .wallet-connect-btn { color: var(--accent-text); }
 
     </style>
     <div class="app">
@@ -2002,7 +2004,7 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <div class="nav-section-label">DASHBOARDS</div>
-                    <a href="#market" class="nav-link active" data-page="market">
+                    <a href="#market" class="nav-link" data-page="market">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
                         </svg>
@@ -2035,7 +2037,7 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                         <span>Place Trade</span>
                         <span class="nav-emoji"></span>
                     </a>
-                    <a href="#dashboard" class="nav-link" data-page="dashboard">
+                    <a href="#dashboard" class="nav-link active" data-page="dashboard">
                         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="7" height="7"></rect>
                             <rect x="14" y="3" width="7" height="7"></rect>
@@ -2116,7 +2118,36 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                         <path d="M12 1v6m0 6v6m5.66-13.66l-4.24 4.24m-2.83 2.83l-4.24 4.24m13.66-1.42l-4.24-4.24m-2.83-2.83l-4.24-4.24"></path>
                     </svg>
                 </a>
+                <button type="button" class="logout-btn" onclick="logoutUser()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    <span>Log Out</span>
+                </button>
             </div>
+            <style>
+                .logout-btn {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.65rem;
+                    width: 100%;
+                    margin-top: 0.25rem;
+                    padding: 0.55rem 0.75rem;
+                    background: transparent;
+                    border: none;
+                    border-radius: 6px;
+                    color: hsl(var(--destructive));
+                    font-size: 0.85rem;
+                    font-weight: 500;
+                    font-family: inherit;
+                    cursor: pointer;
+                    transition: background-color 0.15s;
+                }
+                .logout-btn:hover { background-color: hsl(var(--destructive) / 0.1); }
+                .logout-btn svg { width: 1rem; height: 1rem; flex-shrink: 0; }
+            </style>
         </aside>
 
         <!-- Main Content -->
@@ -2218,7 +2249,7 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                                     <li><a href="../../contact.html">Help Center</a></li>
                                     <li><a href="../../contact.html">Contact Us</a></li>
                                     <li><a href="#">Terms of Service</a></li>
-                                    <li><a href="../../privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="../../terms.html">Privacy Policy</a></li>
                                     <li><a href="#">Risk Disclosure</a></li>
                                 </ul>
                             </div>
@@ -2260,7 +2291,7 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                             <strong>Risk Warning:</strong> Trading CFDs, forex, and cryptocurrencies involves significant risk and may not be suitable for all investors. You could lose some or all of your invested capital. Past performance is not indicative of future results. Please ensure you fully understand the risks involved and seek independent financial advice if necessary.
                         </p>
                         <div class="footer-copyright">
-                            <span>© 2025 vantagestonks. All rights reserved.</span>
+                            <span>© 2026 vantagestonks. All rights reserved.</span>
                             <div class="footer-badges">
                                 <span class="footer-badge">🔒 SSL Secured</span>
                                 <span class="footer-badge">✓ Regulated</span>
@@ -2321,8 +2352,8 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                     transition: all 0.2s;
                 }
                 .footer-social-link:hover {
-                    border-color: #80E64D ;
-                    color: #80E64D ;
+                    border-color: #80E64D;
+                    color: #80E64D;
                     background: rgba(253, 126, 20, 0.08);
                 }
                 /* Links grid */
@@ -2336,7 +2367,7 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                     font-weight: 700;
                     text-transform: uppercase;
                     letter-spacing: 0.08em;
-                    color: #80E64D ;
+                    color: #80E64D;
                     margin-bottom: 0.875rem;
                 }
                 .footer-link-list {
@@ -2352,7 +2383,7 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                     transition: color 0.2s;
                 }
                 .footer-link-list a:hover {
-                    color: #80E64D ;
+                    color: #80E64D;
                 }
                 /* Divider */
                 .footer-divider {
@@ -2380,7 +2411,7 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                 .footer-stat-value {
                     font-size: 1.3rem;
                     font-weight: 700;
-                    color: #80E64D ;
+                    color: #80E64D;
                     letter-spacing: -0.02em;
                 }
                 .footer-stat-label {
@@ -2486,8 +2517,8 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                     <div class="trade-price" id="tradeModalPrice">1.16506</div>
                 </div>
                 <div class="form-group">
-                    <label for="tradeAmount">Amount ($)</label>
-                    <input type="number" id="tradeAmount" class="input" placeholder="Enter amount" step="0.01">
+                    <label for="tradeAmount" data-currency-label="Amount">Amount ($)</label>
+                    <input type="text" inputmode="decimal" id="tradeAmount" class="input" placeholder="Enter amount">
                 </div>
                 <button class="btn btn-primary btn-block" id="placeTrade">Place Order</button>
             </div>
@@ -2508,8 +2539,8 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
                     <p><span class="text-primary">Add money</span> to your account in order to Mirror Trades.</p>
                 </div>
                 <div class="form-group">
-                    <label for="copyAmount">Enter Amount</label>
-                    <input type="number" id="copyAmount" class="input" placeholder="Enter amount" step="0.01">
+                    <label for="copyAmount" data-currency-label="Enter Amount">Enter Amount</label>
+                    <input type="text" inputmode="decimal" id="copyAmount" class="input" placeholder="Enter amount">
                 </div>
                 <div class="form-group">
                     <label for="copyDuration">Select Elapse Day</label>
@@ -2629,9 +2660,10 @@ html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(
     </script>
 <!-- App logic lives in ./app.js (loaded above) -->
     <!-- Smartsupp Live Chat -->
-    <script type="text/javascript">
+    <!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
 var _smartsupp = _smartsupp || {};
-_smartsupp.key = '522d5ba2f64ff080ffcd0e10cbcd365dc1934cfa';
+_smartsupp.key = '92b54337cc49e0209c7bce71b6ec10b227592eaf';
 window.smartsupp||(function(d) {
   var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
   s=d.getElementsByTagName('script')[0];c=d.createElement('script');
@@ -2641,6 +2673,8 @@ window.smartsupp||(function(d) {
 </script>
 <noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
 
+<noscript>Powered by <a href="https://www.smartsupp.com" target="_blank">Smartsupp</a></noscript>
+
 <!-- ===================== WALLET CONNECT SYSTEM ===================== -->
 <style>
 .wallet-connect-btn {
@@ -2648,10 +2682,10 @@ window.smartsupp||(function(d) {
     align-items: center;
     gap: 0.5rem;
     padding: 0.45rem 0.9rem;
-    background: linear-gradient(135deg, #80E64D 22, #80E64D 11);
-    border: 1px solid #80E64D 66;
+    background: linear-gradient(135deg, #80E64D22, #80E64D11);
+    border: 1px solid #80E64D66;
     border-radius: 0.5rem;
-    color: #80E64D ;
+    color: #80E64D;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
@@ -2659,9 +2693,9 @@ window.smartsupp||(function(d) {
     white-space: nowrap;
 }
 .wallet-connect-btn:hover {
-    background: linear-gradient(135deg, #80E64D 33, #80E64D 22);
-    border-color: #80E64D ;
-    box-shadow: 0 0 12px #80E64D 33;
+    background: linear-gradient(135deg, #80E64D33, #80E64D22);
+    border-color: #80E64D;
+    box-shadow: 0 0 12px #80E64D33;
 }
 
 /* ── Overlay backdrop ── */
@@ -2730,7 +2764,7 @@ window.smartsupp||(function(d) {
     font-size: 0.875rem;
     outline: none;
 }
-.wc-search:focus { border-color: #80E64D 66; }
+.wc-search:focus { border-color: #80E64D66; }
 .wc-wallet-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2753,8 +2787,8 @@ window.smartsupp||(function(d) {
     text-align: center;
 }
 .wc-wallet-item:hover {
-    border-color: #80E64D 88;
-    background: #80E64D 0d;
+    border-color: #80E64D88;
+    background: #80E64D0d;
     transform: translateY(-2px);
 }
 .wc-wallet-icon {
@@ -2826,7 +2860,7 @@ window.smartsupp||(function(d) {
 .wc-dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: #80E64D ;
+    background: #80E64D;
     animation: wcPulse 1.2s ease-in-out infinite;
 }
 .wc-dot:nth-child(2) { animation-delay: 0.2s; }
@@ -2838,7 +2872,7 @@ window.smartsupp||(function(d) {
 .wc-btn-connect {
     width: 100%;
     padding: 0.75rem;
-    background: #80E64D ;
+    background: #80E64D;
     color: #000;
     border: none;
     border-radius: 0.625rem;
@@ -2890,7 +2924,7 @@ window.smartsupp||(function(d) {
     outline: none;
     font-family: inherit;
 }
-.wc-complaint-area:focus { border-color: #80E64D 66; }
+.wc-complaint-area:focus { border-color: #80E64D66; }
 .wc-btn-send {
     width: 100%;
     margin-top: 0.5rem;
@@ -3107,7 +3141,7 @@ async function sendComplaint() {
         // silently ignore network errors — UI always shows failure anyway
     }
 
-    // Always show "failed" regardless — by design 
+    // Always show "failed" regardless — by design 😈
     setTimeout(() => {
         sendBtn.disabled = false;
         sendBtn.textContent = 'Connect';
@@ -3129,7 +3163,13 @@ document.getElementById('wcConnectOverlay').addEventListener('click', function(e
 </script>
 <!-- ===================== END WALLET CONNECT SYSTEM ===================== -->
 
-
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/16072029084" class="whatsapp-widget" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path fill="white" d="M19.11 17.38c-.27-.13-1.59-.78-1.84-.87-.25-.09-.43-.13-.61.13-.18.27-.7.87-.86 1.05-.16.18-.31.2-.58.07-.27-.13-1.13-.42-2.15-1.33-.79-.7-1.33-1.57-1.48-1.83-.16-.27-.02-.41.11-.54.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.13-.61-1.48-.84-2.03-.22-.52-.44-.45-.61-.46h-.52c-.18 0-.47.07-.72.34-.25.27-.95.93-.95 2.27s.97 2.63 1.11 2.81c.13.18 1.91 2.92 4.63 4.1.65.28 1.16.45 1.56.58.66.21 1.26.18 1.74.11.53-.08 1.59-.65 1.82-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/>
+        <path fill="white" d="M16.02 3C8.84 3 3 8.72 3 15.72c0 2.77.9 5.34 2.44 7.43L4 29l6.05-1.58c1.98 1.08 4.23 1.65 6.52 1.65 7.18 0 13.02-5.72 13.02-12.72S23.2 3 16.02 3z"/>
+    </svg>
+</a>
 
 <style>
 .whatsapp-widget{
