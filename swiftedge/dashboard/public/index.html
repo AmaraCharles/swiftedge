@@ -1824,8 +1824,164 @@ html, body {
     flex: 1;
 }
 
+/* ============================================================
+   LIGHT MODE
+   The redesign above hardcodes dark colours, so they are
+   overridden here whenever <html> does not have .dark.
+   ============================================================ */
+html:not(.dark) {
+  --background: 220 20% 97%;
+  --foreground: 222 25% 12%;
+  --border: 220 14% 89%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 25% 12%;
+  --card-border: 220 14% 88%;
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 222 25% 12%;
+  --sidebar-border: 220 14% 90%;
+  --muted: 220 16% 94%;
+  --muted-foreground: 220 9% 40%;
+  --accent: 220 16% 94%;
+  --accent-foreground: 222 25% 12%;
+  --secondary: 220 16% 92%;
+  --secondary-foreground: 222 25% 12%;
+  --accent-text: #3f8f1c; /* darker green, readable on white */
+}
 
+html:not(.dark) body {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(128,230,77,0.10) 0%, transparent 70%);
+  color: hsl(var(--foreground));
+}
 
+/* Shell */
+html:not(.dark) .sidebar {
+  background: hsl(var(--sidebar));
+  border-right: 1px solid hsl(var(--sidebar-border));
+}
+html:not(.dark) .sidebar-header,
+html:not(.dark) .header {
+  border-bottom: 1px solid hsl(var(--border));
+}
+html:not(.dark) .sidebar-footer {
+  border-top: 1px solid hsl(var(--border)) !important;
+}
+html:not(.dark) .header {
+  background: hsla(0, 0%, 100%, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+/* Nav */
+html:not(.dark) .nav-section-label { color: var(--accent-text) !important; }
+html:not(.dark) .nav-link { color: hsl(220, 9%, 38%) !important; }
+html:not(.dark) .nav-link:hover {
+  background-color: hsl(220, 16%, 95%) !important;
+  color: hsl(var(--foreground)) !important;
+}
+html:not(.dark) .nav-link.active {
+  background: linear-gradient(90deg, rgba(128,230,77,0.18) 0%, rgba(128,230,77,0.05) 100%) !important;
+  color: var(--accent-text) !important;
+}
+
+/* Cards */
+html:not(.dark) .card,
+html:not(.dark) .stat-card,
+html:not(.dark) .trading-card,
+html:not(.dark) .chart-card,
+html:not(.dark) .trade-history-top .widget-placeholder {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--card-border)) !important;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 1px 3px rgba(16,24,40,0.06) !important;
+}
+html:not(.dark) .card:hover {
+  border: 1px solid rgba(63,143,28,0.35) !important;
+  box-shadow: 0 0 0 1px rgba(128,230,77,0.12), 0 8px 24px rgba(16,24,40,0.08) !important;
+}
+html:not(.dark) .stat-card .stat-value {
+  background: none;
+  -webkit-text-fill-color: hsl(var(--foreground));
+  color: hsl(var(--foreground));
+}
+html:not(.dark) .stat-card .stat-label,
+html:not(.dark) th {
+  color: hsl(var(--muted-foreground)) !important;
+}
+
+/* Buttons & tabs — dark text on the bright green for contrast */
+html:not(.dark) .btn-primary,
+html:not(.dark) .tab.active,
+html:not(.dark) .copy-btn,
+html:not(.dark) .history-btn,
+html:not(.dark) .leverage-buttons button.active {
+  color: #0f2306 !important;
+  box-shadow: 0 2px 10px rgba(128,230,77,0.35) !important;
+}
+html:not(.dark) .btn-primary:hover,
+html:not(.dark) .copy-btn:hover,
+html:not(.dark) .history-btn:hover {
+  background: #6fd13d !important;
+  color: #0f2306 !important;
+}
+html:not(.dark) .tab { color: hsl(220, 9%, 40%) !important; }
+html:not(.dark) .tab:hover { background: hsl(220, 16%, 94%) !important; }
+html:not(.dark) .leverage-buttons button:not(.active) {
+  background: hsl(220, 16%, 95%) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Inputs */
+html:not(.dark) .input,
+html:not(.dark) input,
+html:not(.dark) select,
+html:not(.dark) textarea {
+  background: #fff !important;
+  border: 1px solid hsl(220, 14%, 84%) !important;
+  color: hsl(var(--foreground)) !important;
+}
+html:not(.dark) .input:focus,
+html:not(.dark) input:focus,
+html:not(.dark) select:focus {
+  border-color: #5cbf2e !important;
+  box-shadow: 0 0 0 3px rgba(128,230,77,0.2) !important;
+}
+
+/* Hero, tables, badges, modals */
+html:not(.dark) .hero-banner {
+  background: linear-gradient(135deg, #ffffff, hsl(100, 40%, 96%)) !important;
+  border: 1px solid hsl(var(--card-border)) !important;
+}
+html:not(.dark) thead { border-bottom: 1px solid hsl(var(--border)) !important; }
+html:not(.dark) tbody tr { border-bottom: 1px solid hsl(220, 14%, 93%) !important; }
+html:not(.dark) tbody tr:hover { background: rgba(128,230,77,0.06) !important; }
+html:not(.dark) .badge {
+  background: hsl(220, 16%, 94%) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+html:not(.dark) .modal-content {
+  background: #fff !important;
+  border: 1px solid hsl(var(--border)) !important;
+  box-shadow: 0 24px 80px rgba(16,24,40,0.18) !important;
+}
+html:not(.dark) .modal-header { border-bottom: 1px solid hsl(var(--border)) !important; }
+html:not(.dark) .spinner { border-color: hsl(220, 14%, 88%) !important; border-top-color: #80E64D !important; }
+
+/* Green text needs the darker shade on white */
+html:not(.dark) .text-primary,
+html:not(.dark) .reward-icon,
+html:not(.dark) .footer-col-title,
+html:not(.dark) .footer-stat-value,
+html:not(.dark) .footer-link-list a:hover,
+html:not(.dark) .trade-history-top .widget-placeholder h3 {
+  color: var(--accent-text) !important;
+}
+html:not(.dark) .reward-icon { background: rgba(128,230,77,0.15) !important; }
+
+/* Scrollbar & selection */
+html:not(.dark) ::-webkit-scrollbar-track { background: hsl(220, 16%, 95%); }
+html:not(.dark) ::-webkit-scrollbar-thumb { background: hsl(220, 12%, 80%); }
+html:not(.dark) ::selection { background: rgba(128,230,77,0.35); color: hsl(var(--foreground)); }
 
     </style>
     <div class="app">
