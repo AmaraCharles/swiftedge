@@ -1,4 +1,4 @@
-# swiftedgeglobal - Copy Trading & Investment Platform
+# swiftedgeglobal - Best Trading Platform
 
 ## Overview
 
